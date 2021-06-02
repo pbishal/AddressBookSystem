@@ -22,6 +22,8 @@ namespace AddressBookSystem
                 Person person = new Person(firstName, lastName, city, state, email, phoneNumber, zip);//create new object of person class
                 adressBookList.Add(person);//adding person details in addressbookList 
                 Console.WriteLine("Contact added Successfully");
+                Console.WriteLine();
+                Console.WriteLine("New contact");
             }
             else
             {
@@ -33,7 +35,7 @@ namespace AddressBookSystem
             Console.WriteLine("\nEntered Person Details is:");
             foreach (var person in adressBookList)
             {
-                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber);
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
             }
         }
 
@@ -42,7 +44,7 @@ namespace AddressBookSystem
             Console.WriteLine("\nEntered Person Details is in Order :");
             foreach (var person in adressBookList.OrderBy(Key => Key.firstName))//orderBy sorts the vlues of collection in ascending or decending order
             {
-                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber);
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
             }
         }
         public void displayPersonInOrderByCity()
@@ -116,6 +118,17 @@ namespace AddressBookSystem
             }
             Console.WriteLine("This {0} persons are in same state {1} \t {2} ", count2, state, city);
         }
+
+        public void WritePersonDetailTextFile()
+        {
+            FileReadWrite.WriteTxtFile(adressBookList);
+        }
+
+        public void ReadPersonDetailTxtFile()
+        {
+            FileReadWrite.ReadTxtFile();
+        }
+
         public void editPerson()
         {
             Console.WriteLine("\n enter First name to edit details:");
