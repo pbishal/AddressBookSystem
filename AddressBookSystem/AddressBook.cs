@@ -8,6 +8,7 @@ namespace AddressBookSystem
 {
     class AddressBook
     {
+
         List<Person> adressBookList;//create list
         public AddressBook()//default constructor
         {
@@ -44,7 +45,32 @@ namespace AddressBookSystem
                 Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber);
             }
         }
+        public void displayPersonInOrderByCity()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.city))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
 
+        public void displayPersonInOrderByState()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.state))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
+
+        public void displayPersonInOrderByZip()
+        {
+            Console.WriteLine("\nEntered Person Details is in Order :");
+            foreach (var person in adressBookList.OrderBy(Key => Key.zip))
+            {
+                Console.WriteLine("FirstName: {0}, LastName: {1}, city: {2}, state: {3}, email: {4}, phoneNumber: {5}, Zip:{6}", person.firstName, person.lastName, person.city, person.state, person.email, person.phoneNumber, person.zip);
+            }
+        }
         public void searchPerson()
         {
             Console.WriteLine("\n Enter city or state ");

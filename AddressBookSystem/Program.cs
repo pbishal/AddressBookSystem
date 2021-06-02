@@ -35,7 +35,7 @@ namespace AddressBookSystem
             }
             while (Result)
             {
-                Console.WriteLine("\nChoose option \n1.Add Contact \n2.Edit Contact \n3.Delete Contact  \n4.Display Contacts \n5.Search Person By City & State \n6.Display Contacts Same City \n7.Display Contacts Same State \n8.View number of contacts of city and state  \n9.Display Contacts in Sorted \n10.Exit");
+                Console.WriteLine("\nChoose option \n1.Add Contact \n2.Edit Contact \n3.Delete Contact  \n4.Display Contacts \n5.Search Person By City & State \n6.Display Contacts Same City \n7.Display Contacts Same State \n8.View number of contacts of city and state  \n9.Display Contacts in Sorted \n10.Display contact in sorted by state or by city \n11.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -142,15 +142,32 @@ namespace AddressBookSystem
                         string nameAddressBook = Console.ReadLine();
                         abDict[nameAddressBook].displayPersonInOrder();
                         break;
-
                     case 10:
+                        Console.WriteLine("\nEnter Address Book Name for Sort contacts based on City or State");
+                        string nameAddressBookforSorting = Console.ReadLine();
+                        Console.WriteLine("\nChoose option for sorting \n1.By City  \n2.By State \n3.By Zip");
+                        int choiceSorting = Convert.ToInt32(Console.ReadLine());
+                        switch (choiceSorting)
+                        {
+                            case 1:
+                                abDict[nameAddressBookforSorting].displayPersonInOrderByCity();//call method
+                                break;
+                            case 2:
+                                abDict[nameAddressBookforSorting].displayPersonInOrderByState();
+                                break;
+                            case 3:
+                                abDict[nameAddressBookforSorting].displayPersonInOrderByZip();
+                                break;
+                        }
+                        break;
+
+                    case 11:
                         Result = false;
                         break;
                     default:
                         Console.WriteLine("Please enter valid option");
                         break;
                 }
-
             }
             void addContactBook(AddressBook addressBook)
             {
@@ -172,6 +189,7 @@ namespace AddressBookSystem
                 int zip = Convert.ToInt32(Console.ReadLine());
                 addressBook.AddContact(firstName, lastName, address, city, state, phoneNumber, email, zip);
             }
+
         }
     }
 }
