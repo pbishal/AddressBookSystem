@@ -8,8 +8,10 @@ namespace AddressBookSystem
 {
     class FileReadWrite
     {
-        static String FilePath = @"C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\Address.txt";
+        static String FilePath = @"C:\Users\Radha\source\repos\AddressBookSystem\AddressBookSystem\Address.txt";
+        static string FilePathCsv = @"C:\Users\Radha\source\repos\AddressBookSystem\AddressBookSystem\Csvdata.csv";
 
+        //  static String FilePathCsv = @"C:\Users\Radha\source\repos\AddressBookSystem\AddressBookSystem\ReadWriteCsv.csv";
         public static void WriteTxtFile(List<Person> persons)
         {
             if (File.Exists(FilePath))
@@ -48,6 +50,40 @@ namespace AddressBookSystem
                         Console.WriteLine((personDetails));
                 }
                 Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("No such file exists");
+            }
+        }
+
+        public static void writeIntoCsvFile(List<Person> contacts)
+        {
+            if (File.Exists(FilePathCsv))
+            {
+                using (StreamWriter streamWriter = File.AppendText(FilePathCsv))
+                {
+                    foreach (Person contact in contacts)
+                    {
+                        streamWriter.WriteLine(contact.firstName + "," + contact.lastName + "," + contact.city + "," + contact.state + "," + contact.phoneNumber);
+                    }
+                }
+            }
+        }
+
+        public static void ReadContactsInCSVFile()
+        {
+            if (File.Exists(FilePathCsv))
+            {
+                string[] csv = File.ReadAllLines(FilePathCsv);
+                foreach (string csValues in csv)
+                {
+                    string[] column = csValues.Split(',');
+                    foreach (string CSValues in column)
+                    {
+                        Console.WriteLine(CSValues);
+                    }
+                }
             }
             else
             {

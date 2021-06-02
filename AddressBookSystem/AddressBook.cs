@@ -129,6 +129,15 @@ namespace AddressBookSystem
             FileReadWrite.ReadTxtFile();
         }
 
+        public void WritePersonDetailCsvFile()
+        {
+            FileReadWrite.writeIntoCsvFile(adressBookList);
+        }
+
+        public void ReadPersonDetailCsvFile()
+        {
+            FileReadWrite.ReadContactsInCSVFile();
+        }
         public void editPerson()
         {
             Console.WriteLine("\n enter First name to edit details:");
