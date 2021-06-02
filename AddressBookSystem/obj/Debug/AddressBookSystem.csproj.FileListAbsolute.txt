@@ -1,0 +1,7 @@
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\bin\Debug\AddressBookSystem.exe.config
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\bin\Debug\AddressBookSystem.exe
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\bin\Debug\AddressBookSystem.pdb
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\obj\Debug\AddressBookSystem.csprojAssemblyReference.cache
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\obj\Debug\AddressBookSystem.csproj.CoreCompileInputs.cache
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\obj\Debug\AddressBookSystem.exe
+C:\Users\Bishal Pradhan\source\repos\AddressBookSystem\AddressBookSystem\obj\Debug\AddressBookSystem.pdb
