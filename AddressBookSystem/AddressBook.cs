@@ -138,6 +138,16 @@ namespace AddressBookSystem
         {
             FileReadWrite.ReadContactsInCSVFile();
         }
+
+        public void WriteContactsInJSONFile()
+        {
+            FileReadWrite.WriteContactsInJSONFile(adressBookList);
+        }
+
+        public void ReadContactsFronJSON()
+        {
+            FileReadWrite.ReadContactsFromJSONFile();
+        }
         public void editPerson()
         {
             Console.WriteLine("\n enter First name to edit details:");

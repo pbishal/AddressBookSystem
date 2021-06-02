@@ -12,6 +12,8 @@ namespace AddressBookSystem
         {
             FileReadWrite.ReadContactsInCSVFile();
             // AddressBook obj = new AddressBook();//create object of AddressBook class
+
+
             Console.WriteLine("Welcome in Address book System");
             Console.WriteLine("*********************");
             //creating dictionary abDict
@@ -34,7 +36,7 @@ namespace AddressBookSystem
             }
             while (Result)
             {
-                Console.WriteLine("\nChoose option \n1.Add Contact \n2.Edit Contact \n3.Delete Contact  \n4.Display Contacts \n5.Search Person By City & State \n6.Display Contacts Same City \n7.Display Contacts Same State \n8.View number of contacts of city and state  \n9.Display Contacts in Sorted \n10.Display contact in sorted by state or by city \n11.File Operation \n12.Read Write Operation inCsv \n13.Exit");
+                Console.WriteLine("\nChoose option \n1.Add Contact \n2.Edit Contact \n3.Delete Contact  \n4.Display Contacts \n5.Search Person By City & State \n6.Display Contacts Same City \n7.Display Contacts Same State \n8.View number of contacts of city and state  \n9.Display Contacts in Sorted \n10.Display contact in sorted by state or by city \n11.File Operation \n12.Read Write Operation inCsv  \n13.Read Write Operation in Json file \n14.Exit");
                 int choice = Convert.ToInt32(Console.ReadLine());
                 switch (choice)
                 {
@@ -231,9 +233,43 @@ namespace AddressBookSystem
                                 break;
                         }
                         break;
-
-
                     case 13:
+                        Console.WriteLine("chioce : \n1.Write Person detail in Json file \n2 Read Person detail from Json file");
+                        int chooseOption3 = Convert.ToInt32(Console.ReadLine());
+                        switch (chooseOption3)
+                        {
+                            case 1:
+                                Console.WriteLine("Enter Address Book name where you want to write person details");
+                                string write1 = Console.ReadLine();
+                                if (abDict.ContainsKey(write1))
+                                {
+                                    abDict[write1].WriteContactsInJSONFile();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No Address book exist with name {0} ", write1);
+                                }
+                                break;
+                            case 2:
+                                Console.WriteLine("Enter Address Book name where you want to write person details");
+                                string read = Console.ReadLine();
+                                if (abDict.ContainsKey(read))
+                                {
+                                    abDict[read].ReadContactsFronJSON();
+                                }
+                                else
+                                {
+                                    Console.WriteLine("No Address book exist with name {0} ", read);
+                                }
+                                break;
+
+                            default:
+                                Console.WriteLine("Please enter valid option");
+                                break;
+                        }
+                        break;
+
+                    case 14:
                         Result = false;
                         break;
                     default:
@@ -261,6 +297,7 @@ namespace AddressBookSystem
                 int zip = Convert.ToInt32(Console.ReadLine());
                 addressBook.AddContact(firstName, lastName, address, city, state, phoneNumber, email, zip);
             }
+
         }
     }
 }
